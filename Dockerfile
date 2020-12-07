@@ -1,13 +1,15 @@
-FROM python:2.7-alpine3.8
+FROM python:2.7-alpine
 
 EXPOSE 4025
 
 WORKDIR /var/
 
+VOLUME /var/AlarmServer/alarmserver.cfg
+
 RUN apk update && \
     apk upgrade && \
     apk add git bash sed
-RUN git clone https://github.com/juggie/AlarmServer.git
+RUN git clone https://github.com/DeepPurple77/AlarmServer.git
 
 RUN pip install tornado
 
