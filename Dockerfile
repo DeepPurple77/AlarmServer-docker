@@ -1,4 +1,4 @@
-FROM python:2.7-alpine
+FROM python:alpine
 
 EXPOSE 4025
 
@@ -7,7 +7,7 @@ WORKDIR /var/
 RUN apk update && \
     apk upgrade && \
     apk add git bash sed
-RUN git clone https://github.com/DeepPurple77/AlarmServer.git
+RUN git clone -b feature/python3 https://github.com/DeepPurple77/AlarmServer.git
 
 RUN pip install tornado
 
