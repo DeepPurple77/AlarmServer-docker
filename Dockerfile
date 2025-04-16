@@ -15,7 +15,6 @@ RUN apk update && \
     apk add tzdata git bash sed
 
 RUN git clone https://github.com/DeepPurple77/AlarmServer.git
-COPY AlarmServer /var/AlarmServer
  
 RUN pip install tornado
 RUN pip uninstall -y wheel setuptools pip
