@@ -6,8 +6,6 @@ ENV PYTHONIOENCODING=UTF-8
 
 RUN apk add --no-cache ca-certificates
 
-CMD ["python3"]
-
 EXPOSE 4025
 
 WORKDIR /var/
@@ -20,7 +18,6 @@ RUN git clone https://github.com/DeepPurple77/AlarmServer.git
 COPY AlarmServer /var/AlarmServer
  
 RUN pip install tornado
-
 RUN pip uninstall -y wheel setuptools pip
 
 COPY alarmserver.cfg /var/AlarmServer/
@@ -30,7 +27,6 @@ RUN chmod +x /var/run.sh
 
 COPY healthcheck.sh /var/
 RUN chmod +x /var/healthcheck.sh
-
 HEALTHCHECK --interval=5m CMD /var/healthcheck.sh
 
 CMD /var/run.sh
